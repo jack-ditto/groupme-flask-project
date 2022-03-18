@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Bootstrap -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styling.css') }}"
+    />
+    <!-- JQuery -->
+  </head>
+  <body class="bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mt-4">
+          <h4 class="text-center text-light">Select a group:</h4>
+          <div
+            id="groups-loading"
+            class="spinner-border mx-auto mt-3 text-light"
+            role="status"
+          >
+            <span class="sr-only mx-auto">Loading...</span>
+          </div>
+          <select
+            id="group-select"
+            class="form-control mx-auto bg-light"
+            style="width: 400px;"
+            size="5"
+          >
+            <option>Default select</option>
+          </select>
+          <button
+            id="group-select-btn"
+            class="btn btn-primary mx-auto d-block mt-3"
+          >
+            Select
+          </button>
+          <div class="form-check d-block mx-auto text-center mt-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="reload-checkbox"
+              id="reload-data-checkbox"
+            />
+            <label class="form-check-label text-light" for="reload-checkbox">
+              Reload Data
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-sm-12 col-md-4 mt-4">
+          <div
+            class="border border-primary p-2 rounded bg-primary text-light mr-1"
+          >
+            <h4 class="text-center">Total Number of Messages</h4>
+            <div
+              id="total-messages-count-loading"
+              class="spinner-border mx-auto mt-3"
+              role="status"
+              style="display: none;"
+            >
+              <span class="sr-only mx-auto">Loading...</span>
+            </div>
+            <h2 class="text-center" id="total-messages">-</h2>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-4 mt-4">
+          <div
+            class="border border-success p-2 rounded bg-success text-light mr-1"
+          >
+            <h4 class="text-center">Total Members</h4>
+            <div
+              class="spinner-border mx-auto mt-3 group-info-loading"
+              role="status"
+              style="display: none;"
+            >
+              <span class="sr-only mx-auto">Loading...</span>
+            </div>
+            <h2 class="text-center" id="total-members">-</h2>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-4 mt-4">
+          <div class="border border-warning p-2 rounded bg-warning text-light">
+            <h4 class="text-center">Date Created</h4>
+            <div
+              id="group-info-loading-2"
+              class="spinner-border mx-auto mt-3 group-info-loading"
+              role="status"
+              style="display: none;"
+            >
+              <span class="sr-only mx-auto">Loading...</span>
+            </div>
+            <h2 class="text-center" id="date-created">-</h2>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="row mt-5 border border-danger p-4 rounded bg-danger text-light"
+      >
+        <h1 class="mx-auto">Who talks the most?</h1>
+        <canvas class="col-10 offset-1 mt-4" id="talksMostCanvas"></canvas>
+      </div>
+
+      <div class="row mt-5 border border-info p-4 rounded bg-info text-light">
+        <h1 class="mx-auto">Who get the most likes per message?</h1>
+        <canvas
+          class="col-10 offset-1 mt-4"
+          id="likesPerMessageCanvas"
+        ></canvas>
+      </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/data_script.js') }}"></script>
+  </body>
+</html>
